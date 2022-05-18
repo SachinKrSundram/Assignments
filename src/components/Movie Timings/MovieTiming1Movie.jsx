@@ -1,13 +1,12 @@
 import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const MovieTiming1Move = () => {
-  const theme = useTheme();
 
   return (<>
     <Card sx={{ display: 'flex', marginTop: '60px' }}>
@@ -22,9 +21,11 @@ const MovieTiming1Move = () => {
           </Typography>
         </CardContent>
       </Box>
-      <Button variant="contained" sx={{ marginLeft: "300px", height: "60px", marginTop: "30px" }}>
-        Book
-      </Button>
+      <Link to="/ticket" style={{textDecoration:"none"}}>
+        <Button variant="contained" sx={{ marginLeft: "300px", height: "60px", marginTop: "30px" }}>
+          Book
+        </Button>
+      </Link>
     </Card>
 
     {/* Other Card */}
@@ -41,10 +42,12 @@ const MovieTiming1Move = () => {
           </Typography>
         </CardContent>
       </Box>
+      <Link to="/ticket" style={{textDecoration:"none"}}>
       <Button variant="contained" sx={{ marginLeft: "300px", height: "60px", marginTop: "30px" }}>
         Book
       </Button>
-    </Card>
+    </Link>
+  </Card>
   </>
   );
 }
