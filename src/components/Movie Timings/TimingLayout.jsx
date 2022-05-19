@@ -8,19 +8,23 @@ import Grid2 from './Grid2';
 const TimingLayout = () => {
     return (
         <>
-                <Box sx={{ flexGrow: 1 }}>
-                    <Grid container spacing={3}>
-                        <Grid item xs>
-                            <Grid1/>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <MovieTiming1Move/>
-                        </Grid>
-                        <Grid item xs>
-                            <Grid2/>
-                        </Grid>
+            <Box sx={{ flexGrow: 1 }}>
+                <Grid container spacing={3}>
+
+                    <Grid item xs>
+                        <Grid1 />
                     </Grid>
-                </Box>
+
+                    <Grid item xs={6}>
+                        <MovieTiming1Move />
+                    </Grid>
+
+                    <Grid item xs>
+                        <Grid2 />
+                    </Grid>
+
+                </Grid>
+            </Box>
         </>
     );
 }

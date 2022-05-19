@@ -7,17 +7,21 @@ import Grid from '@mui/material/Grid';
 import { Button } from '@mui/material';
 
 const MapNewSeat = () => {
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(0)
+  const [price, setPrice] = useState(0)
   const onIn = () => {
     setCount(count + 1)
-
+    setPrice(price + 149)
   }
+
   const onDe = () => {
     setCount(count - 1)
+    setPrice(price - 149)
   }
 
-  const setLocalStorege = localStorage.setItem('Seats', count)
-  console.log(setLocalStorege)
+
+  localStorage.setItem('Seats', count)
+  localStorage.setItem('Price', price)
 
   return (
     <>
@@ -27,21 +31,23 @@ const MapNewSeat = () => {
         </div>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 2, sm: 4, md: 12 }}>
+
             {Array.from(Array(21)).map((_, index) => (
               <Grid item xs={2} sm={4} md={4} key={index}>
                 <NewSeat key={index} inc={onIn} dec={onDe} />
               </Grid>
             ))}
+
           </Grid>
         </Box>
       </div>
-      <h3 className={style.h3}>You have selected  
+      <h3 className={style.h3}>You have selected
         <span style={{ color: "blue" }}>
-         '{count}'
+          '{count}'
         </span>
-        seats of Rs
+        seats of
         <span style={{ color: "blue" }}>
-          '77'
+          '${price}'
         </span>
       </h3>
 

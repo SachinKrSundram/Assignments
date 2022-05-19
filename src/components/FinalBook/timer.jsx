@@ -8,10 +8,9 @@ const MyTimer = () => {
     const [second, setSecond] = useState(0);
     const [minute, setMinute] = useState(0)
 
-    // var timer;
     useEffect(() => {
 
-        var  timer = setInterval(() => {
+        var timer = setInterval((x) => {
             setSecond(second + 1)
 
             if (second === 59) {
@@ -20,17 +19,28 @@ const MyTimer = () => {
             }
         }, 1000)
 
-        return ()=>clearInterval(timer)
+        return () => clearInterval(timer)
     })
     return (
         <Card sx={{ display: 'flex', marginTop: "20px", marginRight: '20px' }}>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+
                 <CardContent sx={{ flex: '1 0 auto' }}>
+
                     <Typography component="div" variant="h5" sx={{ color: "blue" }}>
+
                         Time for your ticket confirmation
+
                     </Typography>
-                    <Typography component="div" variant="h5" sx={{ color: "Red", marginLeft: '190px', marginTop: "40px" }}>
-                        <h1> {minute}:{second}</h1>
+                    
+                    <Typography component="div" variant="h5"
+                        sx={{ color: "Red", marginLeft: '190px', marginTop: "40px" }}>
+
+                        <h1>
+                            {minute < 10 ? "0" + minute : minute}
+                            :{second < 10 ? '0' + second : second}
+                        </h1>
+
                     </Typography>
                 </CardContent>
             </Box>
