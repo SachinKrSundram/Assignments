@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import MyTimer from './timer';
@@ -11,12 +11,15 @@ const FinalBook = () => {
   const seats = localStorage.getItem('Seats')
   const price = localStorage.getItem('Price')
 
-  setTimeout(() => {
-    localStorage.removeItem('Seats')
-    localStorage.removeItem('Price')
-    alert("Your time for ticket confirmation is over")
-    navigate("/ticket")
-  }, 300000)
+  useEffect(() => {
+    setTimeout(() => {
+      localStorage.removeItem('Seats')
+      localStorage.removeItem('Price')
+      alert("Your time for ticket confirmation is over")
+      navigate("/ticket")
+    }, 300000)
+  })
+
 
   const confirmHandeler = () => {
     alert("Your tickets are confirmed")
